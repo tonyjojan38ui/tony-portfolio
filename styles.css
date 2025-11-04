@@ -22,6 +22,72 @@
     aspect-ratio:3/4;                   /* keep shape */
   }
 
+  /* === MOBILE HEADER + HERO FIXES === */
+
+/* Let header wrap to two rows on small screens */
+@media (max-width: 820px){
+  .header .wrap{
+    display:flex;
+    flex-wrap:wrap;          /* brand on row 1, nav on row 2 */
+    gap:10px;
+    padding:10px 14px;
+  }
+  .brand{ flex:1 1 100%; }   /* take full width on row 1 */
+  .nav{
+    flex:1 1 100%;           /* full width on row 2 */
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:flex-start;
+  }
+
+  /* Keep the brand clean on phones */
+  .logo{ width:38px; height:38px; }
+  .brand-text .title{ font-size:16px; line-height:1.1; }
+  .brand-text .tag{
+    max-width:100%;
+    white-space:normal;      /* allow normal wrapping */
+    opacity:.9;
+  }
+
+  /* Tidy up nav links/buttons */
+  .nav a{ padding:8px 10px; font-size:14px; }
+  .btn.sm{ padding:8px 10px; font-size:12px; }
+  .btn{ min-height:40px; }
+}
+
+/* Ultra-small devices: hide the long tagline to save space */
+@media (max-width: 420px){
+  .brand-text .tag{ display:none; }
+}
+
+/* Make hero text and poster scale on phones */
+@media (max-width: 820px){
+  .hero{ padding:32px 0 20px; }
+  .mega{ font-size:clamp(28px, 8vw, 36px); line-height:1.1; }
+  .lead{ font-size:0.95rem; }
+  .grid-2{ grid-template-columns:1fr; gap:18px; }
+
+  .hero-canvas{ height:auto; min-height:260px; }
+  .poster{
+    width:min(320px, 88vw);
+    height:auto;
+    aspect-ratio:3/4;        /* keeps shape without stretching */
+  }
+
+  /* Cards: single column on phones */
+  .grid-3{ grid-template-columns:1fr; gap:14px; }
+  .thumb{ aspect-ratio:16/9; height:auto; }
+}
+
+/* Disable 3D tilt on touch (prevents jumpiness) */
+@media (hover:none){
+  .tilt{ transform:none !important; }
+  .reveal{ opacity:1; transform:none; }
+}
+
+
   /* Cards & thumbnails */
   .grid-3{grid-template-columns:1fr}
   .thumb{height:auto; aspect-ratio:16/9}
