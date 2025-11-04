@@ -202,6 +202,10 @@ a{color:var(--brand);text-decoration:none}
 @media (min-width: 1200px){
   .poster-logo{ width: clamp(140px, 16vw, 220px); }
 }
+/* Calm background — no sonar / shimmer */
+.bg.fx-gradient{ animation:none !important; }
+.orb{ display:none !important; }
+.shimmer::after{ display:none !important; }
 
 }
 
