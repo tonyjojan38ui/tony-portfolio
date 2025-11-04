@@ -356,3 +356,16 @@ a{color:var(--brand);text-decoration:none}
   .thumb::after{ opacity:0; }
   .thumb img{ filter:none; }
 }
+/* Pull the photo grid up in the Workflow section */
+#process .grid-2{
+  align-items: start;              /* stop vertical centering */
+  gap: clamp(14px, 2.5vw, 22px);   /* a bit tighter than default */
+}
+
+/* Optional: make the two columns more balanced on desktop */
+@media (min-width: 900px){
+  #process .grid-2{ grid-template-columns: 1fr 1fr; }  /* was 1.1fr .9fr */
+}
+
+/* Optional: slightly reduce vertical padding for this section */
+#process.section{ padding-block: clamp(18px, 5vw, 36px); }
