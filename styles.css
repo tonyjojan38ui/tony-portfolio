@@ -287,3 +287,37 @@ a{color:var(--brand);text-decoration:none}
   .thumb::after{ opacity:0; }
   .thumb img{ filter:none; }
 }
+/* Thumbs: base */
+.thumb{ position:relative; overflow:hidden; }
+.thumb img{
+  width:100%; height:100%; display:block; object-fit:cover;
+  filter: brightness(.92);
+  transition: filter .25s ease, transform .25s ease;
+  position: relative; z-index: 1;
+}
+
+/* Soft gradient shade by default, above the image */
+.thumb::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  z-index: 2;
+  opacity: 1; transition: opacity .25s ease;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,.18) 0%,
+    rgba(0,0,0,.28) 45%,
+    rgba(0,0,0,.38) 100%);
+}
+
+/* Clear on hover/focus (desktop) */
+.card:hover .thumb::after,
+.card:focus-within .thumb::after{ opacity:0; }
+.card:hover .thumb img,
+.card:focus-within .thumb img{ filter:none; }
+
+/* If your HTML still has class="shimmer", override it here */
+.thumb.shimmer::after{ animation:none !important; }
+
+/* Touch devices: keep images clear (no hover) */
+@media (hover:none){
+  .thumb::after{ opacity:0; }
+  .thumb img{ filter:none; }
+}
