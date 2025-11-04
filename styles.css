@@ -321,3 +321,38 @@ a{color:var(--brand);text-decoration:none}
   .thumb::after{ opacity:0; }
   .thumb img{ filter:none; }
 }
+/* --- Blue tint that clears on hover/focus --- */
+.thumb{ position: relative; overflow: hidden; }
+
+.thumb img{
+  width:100%; height:100%; object-fit:cover; display:block; border-radius:inherit;
+  filter: brightness(.96) saturate(.96);
+  transition: filter .25s ease;
+  position: relative; z-index: 1;
+}
+
+/* Blue gradient overlay (uses your brand colors) */
+.thumb::after{
+  content:"";
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  opacity: 1; transition: opacity .25s ease;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(110,168,255,.30) 0%,   /* var(--brand) */
+      rgba(0,224,255,.22) 55%,    /* var(--accent) */
+      rgba(10,18,32,.32) 100%     /* soft dark to anchor contrast */
+    );
+}
+
+/* Reveal on hover/focus (desktop) */
+.card:hover .thumb::after,
+.card:focus-within .thumb::after{ opacity:0; }
+.card:hover .thumb img,
+.card:focus-within .thumb img{ filter:none; }
+
+/* Touch devices: keep images clear (no hover) */
+@media (hover:none){
+  .thumb::after{ opacity:0; }
+  .thumb img{ filter:none; }
+}
