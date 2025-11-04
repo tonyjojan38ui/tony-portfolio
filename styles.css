@@ -188,7 +188,7 @@ a{color:var(--brand);text-decoration:none}
 /* Bigger logo inside the poster */
 .poster-logo{
   display:block;
-  width: clamp(100px, 20vw, 180px); /* was ~56–96px */
+  width: clamp(200px, 30vw, 280px); /* was ~56–96px */
   height:auto;
   object-fit:contain;
   margin:12px auto 10px;
