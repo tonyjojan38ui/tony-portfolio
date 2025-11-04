@@ -208,4 +208,18 @@ a{color:var(--brand);text-decoration:none}
 .shimmer::after{ display:none !important; }
 
 }
+/* Bigger logo on mobile */
+@media (max-width: 480px){
+  .poster-logo{
+    width: min(75%, 260px);   /* ~75% of the poster width, capped at 260px */
+    margin: 14px auto 10px;
+  }
+}
+
+/* Small tablets */
+@media (min-width: 481px) and (max-width: 820px){
+  .poster-logo{
+    width: clamp(160px, 42vw, 240px);
+  }
+}
 
