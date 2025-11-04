@@ -185,15 +185,23 @@ a{color:var(--brand);text-decoration:none}
   .reveal{opacity:1;transform:none}
 }
 /* Logo inside hero poster */
+/* Bigger logo inside the poster */
 .poster-logo{
   display:block;
-  width:clamp(56px, 14vw, 96px);
+  width: clamp(100px, 20vw, 180px); /* was ~56–96px */
   height:auto;
   object-fit:contain;
-  margin:8px auto 6px;      /* centers it */
-  border-radius:16px;       /* use 50% for a circle */
+  margin:12px auto 10px;
+  border-radius:16px;               /* use 50% for a circle */
   border:1px solid var(--line);
   background:rgba(255,255,255,.03);
   filter:drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+
+/* Extra bump on large screens only (optional) */
+@media (min-width: 1200px){
+  .poster-logo{ width: clamp(140px, 16vw, 220px); }
+}
+
 }
 
