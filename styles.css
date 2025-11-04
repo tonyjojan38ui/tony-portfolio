@@ -186,12 +186,14 @@ a{color:var(--brand);text-decoration:none}
 }
 /* Logo inside hero poster */
 .poster-logo{
-  width: clamp(48px, 12vw, 84px);
-  height: auto;
-  object-fit: contain;
-  border-radius: 16px;                /* make round? change to 50% */
-  margin-top: 8px;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
-  background: rgba(255,255,255,.03);  /* subtle glass if logo has no transparency */
-  border: 1px solid var(--line);
+  display:block;
+  width:clamp(56px, 14vw, 96px);
+  height:auto;
+  object-fit:contain;
+  margin:8px auto 6px;      /* centers it */
+  border-radius:16px;       /* use 50% for a circle */
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.35));
 }
+
