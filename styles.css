@@ -396,8 +396,8 @@ a{color:var(--brand);text-decoration:none}
   }
 }
 /* Map each tile to an image */
-#process .mosaic .t1{ background: url("assets/workflow-1.png") center/cover no-repeat !important; }
-#process .mosaic .t2{ background: url("assets/workflow-2.png") center/cover no-repeat !important; }
+#process .mosaic .t1{ background: url("assets/workflow-1.jpg") center/cover no-repeat !important; }
+#process .mosaic .t2{ background: url("assets/workflow-2.jpg") center/cover no-repeat !important; }
 #process .mosaic .t3{ background: url("assets/workflow-3.png") center/cover no-repeat !important; }
 #process .mosaic .t4{ background: url("assets/workflow-4.png") center/cover no-repeat !important; }
 
