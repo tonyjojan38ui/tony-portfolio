@@ -369,3 +369,30 @@ a{color:var(--brand);text-decoration:none}
 
 /* Optional: slightly reduce vertical padding for this section */
 #process.section{ padding-block: clamp(18px, 5vw, 36px); }
+/* ===== Workflow: pull the mosaic grid toward the text (strong) ===== */
+@media (min-width: 900px){
+  /* tighten the two columns + top-align */
+  section#process > .wrap.grid-2{
+    align-items: start !important;
+    gap: 6px !important;                /* space between text & grid */
+    column-gap: 6px !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* drag the mosaic left into the gap */
+  section#process > .wrap.grid-2 > .mosaic{
+    position: relative;
+    left: -7vw !important;              /* move closer -> make -9vw / -11vw if you want even closer */
+    width: calc(100% + 7vw) !important; /* keep right edge aligned */
+    margin-top: -12px !important;       /* nudge up a little; adjust as you like */
+  }
+}
+
+/* optional: on ultra-wide screens, pull a bit more */
+@media (min-width: 1400px){
+  section#process > .wrap.grid-2 > .mosaic{
+    left: -9vw !important;
+    width: calc(100% + 9vw) !important;
+  }
+}
+
