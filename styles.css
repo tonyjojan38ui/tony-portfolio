@@ -1,7 +1,3 @@
-/* ===========================
-   Tony Jojan — Portfolio CSS
-   Mobile-first, fluid, accessible
-   =========================== */
 ---
 ---
 /* styles.css */
@@ -393,55 +389,42 @@ a{color:var(--brand);text-decoration:none}
     margin-top: -12px !important;       /* nudge up a little; adjust as you like */
   }
 }
-
-/* optional: on ultra-wide screens, pull a bit more */
-@media (min-width: 1400px){
-  section#process > .wrap.grid-2 > .mosaic{
-    left: -9vw !important;
-    width: calc(100% + 9vw) !important;
-  }
-}
-/* ---- Workflow tiles: force our images to show, centered, no crop ---- */
-#process .mosaic .tile{
-  position: relative;
-  aspect-ratio: 16/9;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid var(--line);
+/* === WORKFLOW MOSAIC — show images centered, no cropping === */
+#process .mosaic > .tile{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:none !important;            /* kill old gradients */
+  background-color:#0c1222;              /* letterbox color */
 }
 
-/* 1) Remove any previous gradient/shimmer that hides images */
-#process .mosaic .tile,
-#process .mosaic .tile.alt,
-#process .mosaic .tile.shimmer{
-  background: #0c1222 !important;              /* reset */
-  background-image: none !important;
+/* Kill shimmer overlay if present */
+#process .mosaic > .tile.shimmer::after{ display:none !important; }
+
+/* Map each tile to your files (PNG) */
+#process .mosaic > .tile:nth-child(1){
+  background: url("/assets/workflow-1.png") center / contain no-repeat !important;
 }
-#process .mosaic .tile.shimmer::after{         /* kill shimmer overlay */
-  display: none !important;
+#process .mosaic > .tile:nth-child(2){
+  background: url("/assets/workflow-2.png") center / contain no-repeat !important;
+}
+#process .mosaic > .tile:nth-child(3){
+  background: url("/assets/workflow-3.png") center / cover no-repeat !important;
+}
+#process .mosaic > .tile:nth-child(4){
+  background: url("/assets/workflow-4.png") center / cover no-repeat !important;
 }
 
-/* 2) Map each tile to your PNGs and make them centered without trimming */
-#process .mosaic .t1{
-  background: url("./assets/workflow-1.png") center / contain no-repeat !important;
-}
-#process .mosaic .t2{
-  background: url("./assets/workflow-2.png") center / contain no-repeat !important;
-}
-#process .mosaic .t3{
-  background: url("./assets/workflow-3.png") center / contain no-repeat !important;
-}
-#process .mosaic .t4{
-  background: url("./assets/workflow-4.png") center / contain no-repeat !important;
-}
-
-/* Optional: blue tint reveal on hover (desktop only) */
+/* Optional blue tint that clears on hover (desktop) */
 @media (hover:hover){
-  #process .mosaic .tile::after{
+  #process .mosaic > .tile::after{
     content:""; position:absolute; inset:0; pointer-events:none;
     background: linear-gradient(to bottom,
       rgba(110,168,255,.18), rgba(0,224,255,.12), rgba(10,18,32,.18));
-    transition: opacity .25s ease; opacity: 1;
+    opacity:1; transition:opacity .25s ease;
   }
-  #process .mosaic .tile:hover::after{ opacity: 0; }
+  #process .mosaic > .tile:hover::after{ opacity:0; }
 }
+
