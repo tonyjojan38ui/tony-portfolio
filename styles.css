@@ -420,3 +420,37 @@ section#process .mosaic .tile > img{
 section#process .mosaic .t1 > img,
 section#process .mosaic .t3 > img{ object-fit: cover; }  /* fills, can crop */
 */
+/* === Hero poster logo: bigger + no inner box === */
+.poster .poster-logo{
+  /* SIZE: scale up; use most of the poster width */
+  width: min(82%, 560px) !important;   /* tweak 560px if you want even larger */
+  height: auto !important;
+
+  /* ONLY the image – no frame */
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+
+  /* center nicely */
+  display: block !important;
+  margin: clamp(10px, 2vh, 18px) auto 12px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Even bigger on wide screens */
+@media (min-width: 1200px){
+  .poster .poster-logo{
+    width: min(86%, 640px) !important;
+  }
+}
+
+/* Comfortable size on small phones */
+@media (max-width: 480px){
+  .poster .poster-logo{
+    width: min(90%, 360px) !important;
+  }
+}
+
