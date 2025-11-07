@@ -395,41 +395,47 @@ a{color:var(--brand);text-decoration:none}
     width: calc(100% + 9vw) !important;
   }
 }
-
-@media (hover:hover){ #process .mosaic .tile:hover::after{ opacity:0; } }
-@media (hover:none){ #process .mosaic .tile::after{ opacity:0; } }
-/* --- Workflow: show real images and keep them centered without cropping --- */
+/* ---- Workflow tiles: force our images to show, centered, no crop ---- */
 #process .mosaic .tile{
-  position:relative;
-  aspect-ratio:16/9;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid var(--line);
-  background-color:#0c1222;                 /* behind letterboxing */
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:contain;                   /* <= prevents trimming */
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
 }
 
-/* Map each tile to your files (JPGs for the first two) */
-#process .mosaic .t1{ background-image:url("assets/workflow-1.png"); }
-#process .mosaic .t2{ background-image:url("assets/workflow-2.png"); }
-#process .mosaic .t3{ background-image:url("assets/workflow-3.png"); }
-#process .mosaic .t4{ background-image:url("assets/workflow-4.png"); }
-
-/* Remove any old gradient fills on these tiles */
-#process .mosaic .t1,
-#process .mosaic .t2,
-#process .mosaic .t3,
-#process .mosaic .t4{ background-blend-mode:normal !important; }
-
-/* Optional: blue tint that clears on hover */
-#process .mosaic .tile::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(to bottom,
-    rgba(110,168,255,.22), rgba(0,224,255,.16), rgba(10,18,32,.22));
-  transition:opacity .25s ease; opacity:1;
+/* 1) Remove any previous gradient/shimmer that hides images */
+#process .mosaic .tile,
+#process .mosaic .tile.alt,
+#process .mosaic .tile.shimmer{
+  background: #0c1222 !important;              /* reset */
+  background-image: none !important;
 }
-@media (hover:hover){ #process .mosaic .tile:hover::after{ opacity:0; } }
-@media (hover:none){ #process .mosaic .tile::after{ opacity:0; } }
+#process .mosaic .tile.shimmer::after{         /* kill shimmer overlay */
+  display: none !important;
+}
 
+/* 2) Map each tile to your PNGs and make them centered without trimming */
+#process .mosaic .t1{
+  background: url("./assets/workflow-1.png") center / contain no-repeat !important;
+}
+#process .mosaic .t2{
+  background: url("./assets/workflow-2.png") center / contain no-repeat !important;
+}
+#process .mosaic .t3{
+  background: url("./assets/workflow-3.png") center / contain no-repeat !important;
+}
+#process .mosaic .t4{
+  background: url("./assets/workflow-4.png") center / contain no-repeat !important;
+}
+
+/* Optional: blue tint reveal on hover (desktop only) */
+@media (hover:hover){
+  #process .mosaic .tile::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: linear-gradient(to bottom,
+      rgba(110,168,255,.18), rgba(0,224,255,.12), rgba(10,18,32,.18));
+    transition: opacity .25s ease; opacity: 1;
+  }
+  #process .mosaic .tile:hover::after{ opacity: 0; }
+}
