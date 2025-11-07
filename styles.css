@@ -2,6 +2,12 @@
    Tony Jojan — Portfolio CSS
    Mobile-first, fluid, accessible
    =========================== */
+---
+---
+/* styles.css */
+#process .mosaic .t1{
+  background-image:url('{{ "/assets/workflow-1.png" | relative_url }}?v={{ site.github.build_revision }}');
+}
 
 /* ---- Theme tokens ---- */
 :root{
