@@ -415,4 +415,38 @@ a{color:var(--brand);text-decoration:none}
 }
 @media (hover:hover){ #process .mosaic .tile:hover::after{ opacity:0; } }
 @media (hover:none){ #process .mosaic .tile::after{ opacity:0; } }
+/* --- Workflow: show real images and keep them centered without cropping --- */
+#process .mosaic .tile{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background-color:#0c1222;                 /* behind letterboxing */
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;                   /* <= prevents trimming */
+}
+
+/* Map each tile to your files (JPGs for the first two) */
+#process .mosaic .t1{ background-image:url("assets/workflow-1.jpg"); }
+#process .mosaic .t2{ background-image:url("assets/workflow-2.jpg"); }
+#process .mosaic .t3{ background-image:url("assets/workflow-3.png"); }
+#process .mosaic .t4{ background-image:url("assets/workflow-4.png"); }
+
+/* Remove any old gradient fills on these tiles */
+#process .mosaic .t1,
+#process .mosaic .t2,
+#process .mosaic .t3,
+#process .mosaic .t4{ background-blend-mode:normal !important; }
+
+/* Optional: blue tint that clears on hover */
+#process .mosaic .tile::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to bottom,
+    rgba(110,168,255,.22), rgba(0,224,255,.16), rgba(10,18,32,.22));
+  transition:opacity .25s ease; opacity:1;
+}
+@media (hover:hover){ #process .mosaic .tile:hover::after{ opacity:0; } }
+@media (hover:none){ #process .mosaic .tile::after{ opacity:0; } }
 
