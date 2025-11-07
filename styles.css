@@ -382,7 +382,7 @@ a{color:var(--brand);text-decoration:none}
   /* drag the mosaic left into the gap */
   section#process > .wrap.grid-2 > .mosaic{
     position: relative;
-    left: -7vw !important;              /* move closer -> make -9vw / -11vw if you want even closer */
+    left: -11vw !important;              /* move closer -> make -9vw / -11vw if you want even closer */
     width: calc(100% + 7vw) !important; /* keep right edge aligned */
     margin-top: -12px !important;       /* nudge up a little; adjust as you like */
   }
