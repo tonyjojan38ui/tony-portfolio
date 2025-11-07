@@ -419,7 +419,7 @@ section#process .mosaic .tile > img{
 /* If you WANT some tiles to fill the box, uncomment these:
 section#process .mosaic .t1 > img,
 section#process .mosaic .t3 > img{ object-fit: cover; }  /* fills, can crop */
-*/
+
 /* === Hero poster logo: bigger + no inner box === */
 .poster .poster-logo{
   /* SIZE: scale up; use most of the poster width */
